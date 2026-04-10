@@ -17,4 +17,5 @@ public class HistoricoStatus {
     public String toString() {
         return "[" + data + "] Status: " + status + " | Por: " + responsavel + " | Obs: " + comentario;
     }
+
 }
