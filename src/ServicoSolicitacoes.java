@@ -16,6 +16,7 @@ public class ServicoSolicitacoes {
         return bancoDeDados.get(protocolo);
     }
 
+
     public Collection<Solicitacao> listarTodas() {
         return bancoDeDados.values();
     }
