@@ -18,14 +18,45 @@ public class ObservaAcaoApp {
     }
 
     private static void registrar() {
-        System.out.print("Categoria: "); String cat = sc.nextLine();
-        System.out.print("Descrição: "); String desc = sc.nextLine();
-        System.out.print("Bairro: "); String bairro = sc.nextLine();
-        System.out.print("Prioridade (1-Baixa a 4-Urgente): "); int p = Integer.parseInt(sc.nextLine());
-        System.out.print("Anônimo? (s/n): "); boolean anon = sc.nextLine().equalsIgnoreCase("s");
+        System.out.println("\n--- NOVO REGISTRO ---");
+        System.out.print("Deseja fazer uma denúncia anônima? (s/n): ");
+        boolean anon = sc.nextLine().equalsIgnoreCase("s");
+
+        String nomeCidadao = "Anônimo";
+        String documento = "N/A";
+
+
+        if (!anon) {
+            System.out.println(">> Você escolheu se identificar.");
+            System.out.print("Digite seu nome completo: ");
+            nomeCidadao = sc.nextLine();
+            System.out.print("Digite seu CPF ou Telefone: ");
+            documento = sc.nextLine();
+
+        } else {
+            System.out.println(">> ATENÇÃO: Denúncia Anônima. Seus dados não serão salvos.");
+            System.out.println("Certifique-se de fornecer o máximo de detalhes na descrição.");
+        }
+
+        System.out.print("Categoria (Iluminação, Buraco, Zeladoria, etc): ");
+        String cat = sc.nextLine();
+        System.out.print("Descrição detalhada da demanda: ");
+        String desc = sc.nextLine();
+        System.out.print("Bairro/Localização: ");
+        String bairro = sc.nextLine();
+
+        System.out.println("Prioridade sugerida:");
+        System.out.println("1-Baixa | 2-Média | 3-Alta | 4-Urgente");
+        int p = Integer.parseInt(sc.nextLine());
+
 
         String protocolo = servico.criar(cat, desc, bairro, p, anon);
-        System.out.println("SUCESSO! Guarde seu protocolo: " + protocolo);
+
+        System.out.println("\n-------------------------------------------");
+        System.out.println("REGISTRO CONCLUÍDO COM SUCESSO!");
+        System.out.println("Protocolo: " + protocolo);
+        if (!anon) System.out.println("Cidadão: " + nomeCidadao);
+        System.out.println("-------------------------------------------");
     }
 
     private static void consultar() {

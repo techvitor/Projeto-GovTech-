@@ -51,4 +51,12 @@ public class Solicitacao {
         System.out.println("Histórico:");
         historico.forEach(h -> System.out.println("  " + h));
     }
+
+    public void atualizarStatus(Status novoStatus, String responsavel, String comentario) {
+        if (comentario == null || comentario.trim().length() < 5) {
+            throw new IllegalArgumentException("O comentário deve ter pelo menos 5 caracteres para fins de auditoria.");
+        }
+        this.statusAtual = novoStatus;
+        adicionarHistorico(novoStatus, responsavel, comentario);
+    }
 }
