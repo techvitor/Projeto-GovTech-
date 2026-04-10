@@ -37,6 +37,10 @@ public class Solicitacao {
         return statusAtual;
     }
 
+    public String getBairro(){
+        return bairro;
+    }
+
     public void exibirDetalhes() {
         System.out.println("\n--- DETALHES DA SOLICITAÇÃO ---");
         System.out.println("Protocolo: " + protocolo + (isAnonimo ? " (ANÔNIMO)" : " (IDENTIFICADO)"));
